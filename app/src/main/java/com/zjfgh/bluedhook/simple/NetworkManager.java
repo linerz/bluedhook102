@@ -223,6 +223,8 @@ public class NetworkManager {
         if (hasEnData) {
             dataStr = root.getString("en_data");
             dataStr = ModuleTools.enDataDecrypt(dataStr, AppContainer.getInstance().getBytes());
+            JSONObject temp = new JSONObject(dataStr);
+            dataStr = temp.getJSONArray("data").toString();
         } else {
             dataStr = root.getString("data");
         }
